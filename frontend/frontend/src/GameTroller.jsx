@@ -60,7 +60,7 @@ const GameTroller = () => {
     }
     try {
       const res = await fetch(
-        `http://localhost:5000/api/destination?${new Date().getTime()}`
+        `https://globetrollerproject.onrender.com/api/destination?${new Date().getTime()}`
       );
       if (!res.ok) {
         throw new Error("Network response was not ok");
@@ -76,7 +76,7 @@ const GameTroller = () => {
   };
 
   const generateInviteLink = () => {
-    const inviteLink = `http://localhost:5173?username=${username}&score=${score.correct}`;
+    const inviteLink = `https://globetrollerprojectmain.onrender.com?username=${username}&score=${score.correct}`;
     return inviteLink;
   };
 
