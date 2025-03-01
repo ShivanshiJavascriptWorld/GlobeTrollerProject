@@ -1,11 +1,15 @@
 
 import React from 'react';
 
-export default function NextButton({ onClick }) {
+export default function NextButton({ onClick, disabled, text }) {
   return (
-    <div className="next-button-container">
-      <button className="next-button" onClick={onClick}>
-        Next Destination
+    <div className="button-container">
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        className={`next-btn ${disabled ? 'disabled' : ''}`}
+      >
+        {text}
       </button>
     </div>
   );

@@ -1,4 +1,3 @@
-/* App.css */
 *,
 *::before,
 *::after {
@@ -9,10 +8,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #c6ffdd, #fbd786, #f7797d);
+  background: linear-gradient(135deg, #cc2b5e, #753a88);
   color: #333;
-  /* min-height: 100vh; */
-  animation: gradientMove 5s infinite alternate;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 30px;
+
 }
 button{
   outline: none;
@@ -32,41 +34,67 @@ button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin:20px 200px ;
-}
-
-.globetroller-title{
-  font-size: 3rem;
-  color: #333;
-  font-weight: bold;
-  /* text-transform: uppercase; */
-  font-style: italic;
   padding: 20px;
-  animation: fadeInUp 0.6s ease-out;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+header {
+  text-align: center;
 }
-/* ClueDisplay.css */
+header > h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #f9f4da;
+}
+header > p {
+  font-size: 0.875rem;
+  max-width: 350px;
+  color: #ffc8c8;
+  padding: 10px;
+}
+section.game-status {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-block: 20px;
+  font-style: italic;
 
-/* General layout for clues and answers */
+}
+section.game-status > p {
+color: white;
+  padding:10px;
+}
+section.game-status > h2 {
+  margin: 5px;
+  font-size: 1.25rem;
+  color: white;
+}
+.game-status.incorrect{
+  background-color: #f44336;
+  ;
+}
+.game-status.correct {
+  background-color: #4caf50;
+  border: 1px dashed #323232;
+  font-style: italic;
+  padding-block: 15px;
+}
+.game-status.empty {
+  padding-block: 30px;
+  background-color: transparent;
+}
+
+
 .clue-display {
   background: linear-gradient(135deg, #36d1dc, #5b86e5); 
   padding: 30px 50px;
   border-radius: 20px;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 90vw; /* 90% of the viewport width */
-  max-height: 80vh; /* Restricting height to 80% of the viewport */
-  /* margin: 40px auto; */
+  max-width: 90vw; 
+  max-height: 80vh; 
   text-align: center;
   position: relative;
   backdrop-filter: blur(10px); 
@@ -119,68 +147,30 @@ button{
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.answer-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-  background-color: #e3e7ea;
-}
-
-.answer-button:active {
-  background-color: #d1d7db;
-  transform: scale(1);
-}
 
 .answer-button.correct {
-  background-color: #4caf50;
-  color: #fff;
-  box-shadow: 0 12px 40px rgba(76, 175, 80, 0.4);
+  background-color: green !important;
+  color: white;
 }
 
 .answer-button.incorrect {
-  background-color: #f44336;
-  color: #fff;
-  box-shadow: 0 12px 40px rgba(244, 67, 54, 0.4);
-}
-/* Feedback.css */
-
-/* Visual enhancements for feedback */
-.feedback {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(135deg, rgba(56, 99, 253, 0.8), rgba(56, 99, 253, 0.5));
-  border-radius: 20px;
-  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2);
-  max-width: 90vw;
+  background-color: red !important;
+  color: white;
 }
 
-.feedback-text {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #ffffff;
+.answer-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.feedback-text.correct {
-  color: #4caf50;
-}
 
-.feedback-text.incorrect {
-  color: #f44336;
-}
-
-.fun-fact {
-  font-style: italic;
-  color: #f7f7f7;
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-/* Score.css */
-
-/* Elegant score display */
 .score {
   font-size: 1.6rem;
   font-weight: bold;
@@ -203,16 +193,20 @@ button{
   font-weight: 700;
   margin-left: 15px;
 }
-/* NextButton.css */
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  }
 
-/* Stylish next button */
-.next-button-container {
+.button-container {
   display: flex;
   justify-content: center;
   margin-top: 40px;
 }
 
-.next-button {
+.button-container >button {
   background: radial-gradient(circle, rgba(0, 188, 212, 0.8), rgba(0, 188, 212, 0.5));
   padding: 20px 50px;
   border-radius: 25px;
@@ -224,13 +218,173 @@ button{
   text-transform: uppercase;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.2);
 }
+.button-container >button:disabled{
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
-.next-button:hover {
+.button-container >button:hover {
   background: radial-gradient(circle, rgba(0, 188, 212, 1), rgba(0, 188, 212, 0.7));
   transform: scale(1.05);
   box-shadow: 0 18px 70px rgba(0, 0, 0, 0.3);
 }
 
-.next-button:active {
+.button-container >button:active {
   background: rgba(0, 188, 212, 0.5);
 }
+.button-container>button.challenge-button {
+  background: radial-gradient(circle, rgba(158, 77, 233, 0.8), rgba(0, 106, 212, 0.5));
+}
+
+.share-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards; 
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: slideIn 0.5s ease-out; 
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  color: #2e3d49;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.invite-image {
+  margin-bottom: 20px;
+}
+
+.invite-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f7f7f7;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.share-buttons button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.share-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.share-buttons button:active {
+  transform: translateY(2px);
+}
+
+.share-buttons button + button {
+  background-color: #28a745;
+}
+
+.share-buttons button + button:hover {
+  background-color: #218838;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  color: #333;
+}
+
+.user-profile>form{
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.user-profile>form>button{
+  padding: 20px 50px ;
+  border: none;
+  outline: none;
+  background-color: #218838;
+  color: #fff;
+}
+
+
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+

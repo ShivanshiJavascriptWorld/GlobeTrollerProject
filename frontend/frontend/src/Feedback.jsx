@@ -1,15 +1,19 @@
-
 import React from 'react';
 
-export default function Feedback({ feedback, funFact }) {
+export default function Feedback({ feedback, funFact,city,feedbackClass }) {
+
   return (
-    <div className={`feedback ${feedback}`}>
-      <p className={`feedback-text ${feedback === 'correct' ? 'correct' : 'incorrect'}`}>
-        {feedback === 'correct' ? 'Correct! 🎉' : 'Oops! 😔'}
-      </p>
-      <div className="fun-fact">
-        <p>{funFact}</p>
-      </div>
-    </div>
+    <section
+      aria-live="polite"
+      role="status"
+      className={`game-status ${feedbackClass}`}>
+      <h2>
+        {feedback === 'correct' ? `${city} 🎉` : feedback === 'incorrect' ? 'Wrong Answer 😔' : ''}
+      </h2>
+    { funFact ?  (funFact.map((fact)=>{
+        return(
+      <p>{fact || ''}</p>)})):<></>}
+
+    </section>
   );
 }
