@@ -1,7 +1,6 @@
-// server.js
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const app = express();
 const port = 5000;
 
 app.use(cors()); 
@@ -168,10 +167,13 @@ const destinations = [
   }
 ];
 
+
 app.get("/api/destination", (req, res) => {
   const randomDestination = destinations[Math.floor(Math.random() * destinations.length)];
+  res.setHeader('Cache-Control','no-store')
   res.json(randomDestination);
 });
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

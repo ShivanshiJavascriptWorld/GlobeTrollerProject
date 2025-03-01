@@ -1,11 +1,12 @@
-import React from "react";
 
-function NextButton({ onClick }) {
+import React from 'react';
+
+export default function NextButton({ onClick }) {
   return (
-    <div>
-      <button onClick={onClick}>Next</button>
+    <div className="next-button-container">
+      <button className="next-button" onClick={onClick}>
+        Next Destination
+      </button>
     </div>
   );
 }
-
-export default NextButton;
