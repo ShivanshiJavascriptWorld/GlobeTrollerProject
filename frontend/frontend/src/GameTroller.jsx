@@ -102,12 +102,27 @@ const GameTroller = () => {
     setScore({ correct: 0, incorrect: 0 });
     setGameOver(false);
   };
+
+  const SadFaceAnimation = () => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ textAlign: "center", fontSize: "50px", color: "#ff5c5c" }}
+    >
+      <span role="img" aria-label="sad face">
+        😞
+      </span>
+    </motion.div>
+  );
+  
   return (
     <div className="main">
       {feedback === "correct" && !gameOver ? (
         <Confetti />
       ) : feedback === "incorrect" ? (
-        <></>
+        <SadFaceAnimation />
       ) : (
         ""
       )}

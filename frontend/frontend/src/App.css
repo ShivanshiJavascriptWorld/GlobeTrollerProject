@@ -64,7 +64,7 @@ section.game-status {
 }
 section.game-status > p {
 color: white;
-  padding:10px;
+  padding:5px 10px;
 }
 section.game-status > h2 {
   margin: 5px;
@@ -82,7 +82,8 @@ section.game-status > h2 {
   padding-block: 15px;
 }
 .game-status.empty {
-  padding-block: 30px;
+  padding-block: 50px;
+  padding-inline: 0px;
   background-color: transparent;
 }
 
