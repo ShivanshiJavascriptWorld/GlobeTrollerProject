@@ -145,8 +145,7 @@ const GameTroller = () => {
       
         <Score correct={score.correct} incorrect={score.incorrect} totalTurns={10-rounds} gameOver={gameOver} />
    
-
-      {/* <section className="btn-group">
+      <section className="btn-group">
         {" "}
         <NextButton
           onClick={gameOver ? handlePlayAgain : fetchNewDestination}
@@ -154,29 +153,8 @@ const GameTroller = () => {
           text={gameOver ? "Play Again" : "Next Destination"}
         />
         <ChallengeButton onClick={generateInviteImage} />
-      </section> */}
-            <section className="btn-group">
-        {gameOver ? (
-          <motion.div
-            className="game-over-banner"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <h2>Game Over!</h2>
-            <p>Well Played, {username}!</p>
-            <NextButton onClick={handlePlayAgain} text="Play Again" />
-          </motion.div>
-        ) : (
-          <NextButton
-            onClick={fetchNewDestination}
-            disabled={!selectedAnswer}
-            text="Next Destination"
-          />
-        )}
-        <ChallengeButton onClick={generateInviteImage} />
       </section>
-
+        
 
       <div id="invite-section" style={{ display: "none" }}>
         <div>
